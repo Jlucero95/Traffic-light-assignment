@@ -1,20 +1,31 @@
 import { useState } from "react";
 
+const states = [
+	{
+		top: "red",
+		middle: "black",
+		bottom: "black",
+	},
+	{
+		top: "black",
+		middle: "yellow",
+		bottom: "black",
+	},
+	{
+		top: "black",
+		middle: "black",
+		bottom: "green",
+	},
+];
 export const FunctionalTrafficLight = () => {
-	const [redLightOn, setRedLightOn] = useState(true);
-	const [yellowLightOn, setYellowLightOn] = useState(false);
-	const [greenLightOn, setGreenLightOn] = useState(false);
+	const [lightColor, setLightColor] = useState(0);
+	const currentLightColor = states[lightColor];
 
-	const toggleState = () => {
-		if (redLightOn) {
-			setRedLightOn(false);
-			setYellowLightOn(true);
-		} else if (yellowLightOn) {
-			setYellowLightOn(false);
-			setGreenLightOn(true);
-		} else if (greenLightOn) {
-			setGreenLightOn(false);
-			setRedLightOn(true);
+	const changeLightColor = () => {
+		if (lightColor < states.length - 1) {
+			setLightColor(lightColor + 1);
+		} else if (lightColor === states.length - 1) {
+			setLightColor(0);
 		}
 	};
 
@@ -22,13 +33,13 @@ export const FunctionalTrafficLight = () => {
 		<div className="traffic-light-box">
 			<h2>Functional Traffic Light</h2>
 			<div className="traffic-light">
-				<div className={`circle ${redLightOn ? "red" : "black"}`}></div>
-				<div className={`circle ${yellowLightOn ? "yellow" : "black"}`}></div>
-				<div className={`circle ${greenLightOn ? "green" : "black"}`}></div>
+				<div className={`circle ${currentLightColor.top}`}></div>
+				<div className={`circle ${currentLightColor.middle}`}></div>
+				<div className={`circle ${currentLightColor.bottom}`}></div>
 			</div>
 			<button
 				className="next-state-button"
-				onClick={toggleState}
+				onClick={changeLightColor}
 			>
 				Next State
 			</button>
