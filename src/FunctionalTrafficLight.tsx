@@ -1,30 +1,14 @@
 import { useState } from "react";
+import { lightState } from "./LightStates";
 
-const states = [
-	{
-		top: "red",
-		middle: "black",
-		bottom: "black",
-	},
-	{
-		top: "black",
-		middle: "yellow",
-		bottom: "black",
-	},
-	{
-		top: "black",
-		middle: "black",
-		bottom: "green",
-	},
-];
 export const FunctionalTrafficLight = () => {
 	const [lightColor, setLightColor] = useState(0);
-	const currentLightColor = states[lightColor];
+	const currentLightColor = lightState[lightColor];
 
 	const changeLightColor = () => {
-		if (lightColor < states.length - 1) {
+		if (lightColor < lightState.length - 1) {
 			setLightColor(lightColor + 1);
-		} else if (lightColor === states.length - 1) {
+		} else if (lightColor === lightState.length - 1) {
 			setLightColor(0);
 		}
 	};

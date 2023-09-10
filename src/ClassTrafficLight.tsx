@@ -1,30 +1,15 @@
 import { Component } from "react";
-
-const states = [
-	{
-		top: "red",
-		middle: "black",
-		bottom: "black",
-	},
-	{
-		top: "black",
-		middle: "yellow",
-		bottom: "black",
-	},
-	{
-		top: "black",
-		middle: "black",
-		bottom: "green",
-	},
-];
+import { lightState } from "./LightStates";
 
 export class ClassTrafficLight extends Component {
 	state = { count: 0 };
 
+	stateCount = this.state.count;
+
 	changeLightColor = () => {
-		if (this.state.count < states.length - 1) {
+		if (this.state.count < lightState.length - 1) {
 			this.setState({ count: this.state.count + 1 });
-		} else if (this.state.count === states.length - 1) {
+		} else if (this.state.count === lightState.length - 1) {
 			this.setState({ count: 0 });
 		}
 	};
@@ -33,9 +18,9 @@ export class ClassTrafficLight extends Component {
 			<div className="traffic-light-box">
 				<h2>Class Traffic Light</h2>
 				<div className="traffic-light">
-					<div className={`circle ${states[this.state.count].top}`}></div>
-					<div className={`circle ${states[this.state.count].middle}`}></div>
-					<div className={`circle ${states[this.state.count].bottom}`}></div>
+					<div className={`circle ${lightState[this.stateCount].top}`}></div>
+					<div className={`circle ${lightState[this.stateCount].middle}`}></div>
+					<div className={`circle ${lightState[this.stateCount].bottom}`}></div>
 				</div>
 				<button
 					className="next-state-button"
