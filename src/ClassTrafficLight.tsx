@@ -1,16 +1,19 @@
 import { Component } from "react";
 import { lightState } from "./LightStates";
 
-export class ClassTrafficLight extends Component {
-	state = { count: 0 };
+type ClassLightState = { lightStateIndex: number };
 
-	stateCount = this.state.count;
+export class ClassTrafficLight extends Component<
+	Record<string, never>,
+	ClassLightState
+> {
+	state = { lightStateIndex: 0 };
 
 	changeLightColor = () => {
-		if (this.state.count < lightState.length - 1) {
-			this.setState({ count: this.state.count + 1 });
-		} else if (this.state.count === lightState.length - 1) {
-			this.setState({ count: 0 });
+		if (this.state.lightStateIndex < lightState.length - 1) {
+			this.setState({ lightStateIndex: this.state.lightStateIndex + 1 });
+		} else if (this.state.lightStateIndex === lightState.length - 1) {
+			this.setState({ lightStateIndex: 0 });
 		}
 	};
 	render() {
@@ -18,9 +21,19 @@ export class ClassTrafficLight extends Component {
 			<div className="traffic-light-box">
 				<h2>Class Traffic Light</h2>
 				<div className="traffic-light">
-					<div className={`circle ${lightState[this.stateCount].top}`}></div>
-					<div className={`circle ${lightState[this.stateCount].middle}`}></div>
-					<div className={`circle ${lightState[this.stateCount].bottom}`}></div>
+					<div
+						className={`circle ${lightState[this.state.lightStateIndex].top}`}
+					></div>
+					<div
+						className={`circle ${
+							lightState[this.state.lightStateIndex].middle
+						}`}
+					></div>
+					<div
+						className={`circle ${
+							lightState[this.state.lightStateIndex].bottom
+						}`}
+					></div>
 				</div>
 				<button
 					className="next-state-button"

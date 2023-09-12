@@ -45,7 +45,7 @@ _You can copy and paste these checklists into your new repository and fill them 
   - Prop Types for components should be colocated with their components
   -
 
-### Assignment Specific Requirements
+### Assignment Specific Requirement
 
 - [ ] The state of a traffic light should go in the following order and repeat indefinitely
   - Red, Green, Yellow

@@ -14,12 +14,13 @@ export const lightState: Lights[] = [
 	},
 	{
 		top: "black",
-		middle: "yellow",
-		bottom: "black",
-	},
-	{
-		top: "black",
 		middle: "black",
 		bottom: "green",
 	},
+	{
+		top: "black",
+		middle: "yellow",
+		bottom: "black",
+	},
+	
 ];

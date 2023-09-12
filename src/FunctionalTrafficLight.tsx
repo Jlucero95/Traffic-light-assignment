@@ -2,14 +2,14 @@ import { useState } from "react";
 import { lightState } from "./LightStates";
 
 export const FunctionalTrafficLight = () => {
-	const [lightColor, setLightColor] = useState(0);
-	const currentLightColor = lightState[lightColor];
+	const [lightStateIndex, setLightStateIndex] = useState(0);
+	const currentLightColor = lightState[lightStateIndex];
 
 	const changeLightColor = () => {
-		if (lightColor < lightState.length - 1) {
-			setLightColor(lightColor + 1);
-		} else if (lightColor === lightState.length - 1) {
-			setLightColor(0);
+		if (lightStateIndex < lightState.length - 1) {
+			setLightStateIndex(lightStateIndex + 1);
+		} else if (lightStateIndex === lightState.length - 1) {
+			setLightStateIndex(0);
 		}
 	};
 
