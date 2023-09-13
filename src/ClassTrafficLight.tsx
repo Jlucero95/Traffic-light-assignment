@@ -7,7 +7,7 @@ export class ClassTrafficLight extends Component<
 	Record<string, never>,
 	ClassLightState
 > {
-	state = { lightStateIndex: 0 };
+	state: ClassLightState = { lightStateIndex: 0 };
 
 	changeLightColor = () => {
 		if (this.state.lightStateIndex < lightState.length - 1) {
